@@ -2,11 +2,13 @@ version: "3.8"
 
 services:
   yew-yo-mama-jokes-client:
-    image: yew-yo-mama-jokes-client
+    build: .
     ports:
       - "8080:8080"
 
   yew-yo-mama-jokes-proxy:
-    image: yew-yo-mama-jokes-proxy
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
