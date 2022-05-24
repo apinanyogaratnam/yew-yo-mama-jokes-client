@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  yew-yo-mama-jokes-client:
+    image: yew-yo-mama-jokes-client
+    ports:
+      - "8080:8080"
+
+  yew-yo-mama-jokes-proxy:
+    image: yew-yo-mama-jokes-proxy
+    ports:
+      - "5000:5000"
