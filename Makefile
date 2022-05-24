@@ -20,6 +20,9 @@ run-proxy:
 stop:
 	docker stop ${IMAGE}
 
+prune:
+	docker system prune --all --volumes
+
 exec:
 	docker exec -it $(sha) /bin/sh
 
