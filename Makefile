@@ -15,7 +15,7 @@ run:
 	docker run -d -p 8080:8080 --name ${IMAGE} ${IMAGE}
 
 run-proxy:
-	docker run -d -p 8080:8080 --name ${IMAGE}-proxy ${IMAGE}-proxy
+	docker run -d -p 5000:5000 --name ${IMAGE}-proxy ${IMAGE}-proxy
 
 stop:
 	docker stop ${IMAGE}
