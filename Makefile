@@ -8,8 +8,14 @@ start:
 build:
 	docker build -t ${IMAGE} .
 
+build-proxy:
+	docker build -t ${IMAGE}-proxy -f proxy/Dockerfile .
+
 run:
 	docker run -d -p 8080:8080 --name ${IMAGE} ${IMAGE}
+
+run-proxy:
+	docker run -d -p 8080:8080 --name ${IMAGE}-proxy ${IMAGE}-proxy
 
 stop:
 	docker stop ${IMAGE}
