@@ -8,6 +8,9 @@ PROXY_REGISTRY_URL := ghcr.io/apinanyogaratnam/${PROXY_IMAGE}:${PROXY_VERSION}
 start:
 	trunk serve
 
+start-proxy:
+	python3 proxy/proxy.py
+
 build:
 	docker build -t ${IMAGE} .
 
