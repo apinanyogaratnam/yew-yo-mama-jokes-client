@@ -32,7 +32,9 @@ fn app() -> Html {
         let joke = fetch_joke().await;
         web_sys::console::log_1(&format!("{:?}", joke).into());
         let joke_state = joke_state.clone();
-        joke_state.set(Some(joke));
+        if joke_state.is_none() {
+            joke_state.set(Some(joke));
+        }
     });
 
     match (*joke_state_outer).clone() {
