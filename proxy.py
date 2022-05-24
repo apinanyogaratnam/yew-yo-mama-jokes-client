@@ -22,4 +22,4 @@ def get_jokes():
     return response.json()
 
 
-app.run()
+app.run(host='0.0.0.0', port=8000)
