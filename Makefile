@@ -15,7 +15,7 @@ build:
 	docker build -t ${IMAGE} .
 
 build-proxy:
-	docker build -t ${PROXY_IMAGE} -f proxy/Dockerfile .
+	docker build -t ${PROXY_IMAGE} proxy
 
 run:
 	docker run -d -p 8080:8080 --name ${IMAGE} ${IMAGE}
