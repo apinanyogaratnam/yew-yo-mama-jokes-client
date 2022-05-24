@@ -25,10 +25,28 @@ async fn fetch_joke() -> Joke {
 
 #[function_component(App)]
 fn app() -> Html {
-    html! {
-        <div>
-            <h1>{"Hello, world!"}</h1>
-        </div>
+    let joke_state = use_state_eq::<Option<Joke>, _>(|| None);
+    let joke_state_outer = joke_state.clone();
+
+    wasm_bindgen_futures::spawn_local(async move {
+        let joke = fetch_joke().await;
+        let joke_state = joke_state.clone();
+        joke_state.set(Some(joke));
+    });
+
+    match (*joke_state_outer).clone() {
+        Some(joke) => html! {
+            <div>
+                <h1>{ "Yo mama Joke" }</h1>
+                <p>{ joke.value }</p>
+            </div>
+        },
+        None => html! {
+            <div>
+                <h1>{ "Yo mama Joke" }</h1>
+                <p>{ "Loading..." }</p>
+            </div>
+        },
     }
 }
 
