@@ -20,6 +20,9 @@ run-proxy:
 stop:
 	docker stop ${IMAGE}
 
+stop-proxy:
+	docker stop ${IMAGE}-proxy
+
 prune:
 	docker system prune --all --volumes
 
