@@ -8,7 +8,7 @@ struct Joke {
 }
 
 async fn fetch_joke() -> Joke {
-    const URL: &str = "https://api.yomomma.info";
+    const URL: &str = "http://127.0.0.1:5000/jokes";
 
     let response: Response = reqwest::get(URL).await.unwrap();
 
@@ -30,6 +30,7 @@ fn app() -> Html {
 
     wasm_bindgen_futures::spawn_local(async move {
         let joke = fetch_joke().await;
+        web_sys::console::log_1(&format!("{:?}", joke).into());
         let joke_state = joke_state.clone();
         joke_state.set(Some(joke));
     });
