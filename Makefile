@@ -23,6 +23,9 @@ run:
 run-proxy:
 	docker run -d -p 8000:8000 --name ${PROXY_IMAGE} ${PROXY_IMAGE}
 
+up:
+	docker-compose up --build --remove-orphans
+
 stop:
 	docker stop ${IMAGE}
 
