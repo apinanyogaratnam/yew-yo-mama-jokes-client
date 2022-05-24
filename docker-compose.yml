@@ -9,4 +9,4 @@ services:
   yew-yo-mama-jokes-proxy:
     image: yew-yo-mama-jokes-proxy
     ports:
-      - "5000:5000"
+      - "8000:8000"
